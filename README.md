@@ -95,12 +95,12 @@ TCP是为流量设计的（每秒内可以传输多少KB的数据），讲究的
    int ikcp_nodelay(ikcpcb *kcp, int nodelay, int interval, int resend, int nc)
    ```
 
-   > nodelay ：是否启用 nodelay模式，0不启用；1启用。
-   > interval ：协议内部工作的 interval，单位毫秒，比如 10ms或者 20ms
-   > resend ：快速重传模式，默认0关闭，可以设置2（2次ACK跨越将会直接重传）
-   > nc ：是否关闭流控，默认是0代表不关闭，1代表关闭。
-   > 普通模式：`ikcp_nodelay(kcp, 0, 40, 0, 0);
-   > 极速模式： ikcp_nodelay(kcp, 1, 10, 2, 1);
+   - nodelay ：是否启用 nodelay模式，0不启用；1启用。
+   - interval ：协议内部工作的 interval，单位毫秒，比如 10ms或者 20ms
+   - resend ：快速重传模式，默认0关闭，可以设置2（2次ACK跨越将会直接重传）
+   - nc ：是否关闭流控，默认是0代表不关闭，1代表关闭。
+   - 普通模式：`ikcp_nodelay(kcp, 0, 40, 0, 0);
+   - 极速模式： ikcp_nodelay(kcp, 1, 10, 2, 1);
 
 2. 最大窗口：
    ```cpp
@@ -138,9 +138,13 @@ TCP是为流量设计的（每秒内可以传输多少KB的数据），讲究的
 - [dog-tunnel](https://github.com/vzex/dog-tunnel): GO开发的网络隧道，使用 KCP极大的改进了传输速度，并移植了一份 GO版本 KCP
 - [v2ray](https://www.v2ray.com)：著名代理软件，Shadowsocks 代替者，1.17后集成了 kcp协议，使用UDP传输，无数据包特征。
 - [asio-kcp](https://github.com/libinzhangyuan/asio_kcp): 使用 KCP的完整 UDP网络库，完整实现了基于 UDP的链接状态管理，会话控制，KCP协议调度等
+- [kcp-java](https://github.com/hkspirt/kcp-java)：Java版本 KCP协议实现。
 - [kcp-go](https://github.com/xtaci/kcp-go): 高安全性的kcp的 GO语言实现，包含 UDP会话管理的简单实现，可以作为后续开发的基础库。 
-- [kcp-csharp](https://github.com/limpo1989/kcp-csharp): kcp的csharp移植，同时包含一份回话管理，可以连接上面kcp-go的服务端。
+- [kcp-csharp](https://github.com/limpo1989/kcp-csharp): kcp的 csharp移植，同时包含一份回话管理，可以连接上面kcp-go的服务端。
+- [kcp-rs](https://github.com/en/kcp-rs): KCP的 rust移植
 - [lua-kcp](https://github.com/linxiaolong/lua-kcp): KCP的 Lua扩展，用于 Lua服务器
+- [node-kcp](https://github.com/leenjewel/node-kcp): node-js 的 KCP 接口  
+- [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android): Shadowsocks for android 集成了 kcptun 使用 kcp协议加速 shadowsocks，效果不错
 - [kcpuv](https://github.com/elisaday/kcpuv): 使用 libuv开发的kcpuv库，目前还在 Demo阶段。
 
 # 协议比较
@@ -174,7 +178,7 @@ TCP是为流量设计的（每秒内可以传输多少KB的数据），讲究的
 
 欢迎关注
 
-KCP交流群：364933586（QQ群号），KCP集成，优化，调优以及相关技术讨论
+KCP交流群：364933586（QQ群号），KCP集成，调优，网络传输以及相关技术讨论
 
 blog: http://www.skywind.me
 
